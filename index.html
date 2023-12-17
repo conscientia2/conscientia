@@ -1,0 +1,240 @@
+<!--
+88888888888888888888888888888888888888888888888888888888888888888888888
+88.._|      | `-.  | `.  -_-_ _-_  _-  _- -_ -  .'|   |.'|     |  _..88
+88   `-.._  |    |`!  |`.  -_ -__ -_ _- _-_-  .'  |.;'   |   _.!-'|  88
+88      | `-!._  |  `;!  ;. _______________ ,'| .-' |   _!.i'     |  88
+88..__  |     |`-!._ | `.| |_______________||."'|  _!.;'   |     _|..88
+88   |``"..__ |    |`";.| i|_|MMMMMMMMMMM|_|'| _!-|   |   _|..-|'    88
+88   |      |``--..|_ | `;!|l|MMoMMMMoMMM|1|.'j   |_..!-'|     |     88
+88   |      |    |   |`-,!_|_|MMMMP'YMMMM|_||.!-;'  |    |     |     88
+88___|______|____!.,.!,.!,!|d|MMMo * loMM|p|,!,.!.,.!..__|_____|_____88
+88      |     |    |  |  | |_|MMMMb,dMMMM|_|| |   |   |    |      |  88
+88      |     |    |..!-;'i|r|MPYMoMMMMoM|r| |`-..|   |    |      |  88
+88      |    _!.-j'  | _!,"|_|M<>MMMMoMMM|_||!._|  `i-!.._ |      |  88
+88     _!.-'|    | _."|  !;|1|MbdMMoMMMMM|l|`.| `-._|    |``-.._  |  88
+88..-i'     |  _.''|  !-| !|_|MMMoMMMMoMM|_|.|`-. | ``._ |     |``"..88
+88   |      |.|    |.|  !| |u|MoMMMMoMMMM|n||`. |`!   | `".    |     88
+88   |  _.-'  |  .'  |.' |/|_|MMMMoMMMMoM|_|! |`!  `,.|    |-._|     88
+88  _!"'|     !.'|  .'| .'|[@]MMMMMMMMMMM[@] \|  `. | `._  |   `-._  88
+88-'    |   .'   |.|  |/| /                 \|`.  |`!    |.|      |`-88
+88      |_.'|   .' | .' |/                   \  \ |  `.  | `._-Lee|  88
+88     .'   | .'   |/|  /                     \ |`!   |`.|    `.  |  88
+88  _.'     !'|   .' | /                       \|  `  |  `.    |`.|  88
+88 vanishing point 888888888888888888888888888888888888888888888(FL)888
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>...</title></head><body><div id=container><input id=inputBox placeholder=".. ."> <button id=submitButton>></button><div id=resultText></div></div><div id=countdown>15</div><div id="succmsg"></div></body><style>body, h1, h2, p, ul, li {margin: 0;padding: 0;}body {font-family: Arial, sans-serif;background-color: #f7f7f7;background-image: url('gif1.gif');background-repeat: no-repeat;background-size: cover;background-attachment: fixed;}#container {display: block;width: fit-content;margin: 100px auto;}#container > input {background: darkslategray;}.cta-button {display: inline-block;padding: 10px 20px;background-color: #007BFF;color: #fff;text-decoration: none;border-radius: 5px;}.cta-button:hover {background-color: #0056b3;}#succmsg {font-family: math;font-size: 67px;color: lightslategray;background-color:#000;width: fit-content;margin: 20px auto;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #00ff1065;} #countdown {visibility: hidden;font-family: math;font-size: 100px;color: lightslategray;width: fit-content;margin: 100px auto;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #00ff1065;}#inputBox {margin-top: 20px;font-size: 16px;padding: 5px;}#submitButton {margin-top: 10px;background-color: #0074d9;color: white;border: none;padding: 10px 20px;cursor: pointer;font-size: 16px;}#resultText {margin-top: 20px;font-size: 18px;display: none;}#errorText {color: red;} .animated {animation: fadeIn 1s;} @keyframes fadeIn {from {opacity: 0;} to {opacity: 1;}}</style>
+<!-- 
+            )
+           (_)
+          .-'-.
+          |   |
+          |   |
+          |   |
+          |   |
+        __|   |__   .-.
+     .-'  |   |  `-:   :
+    :     `---'     :-'
+    `-._       _.-'
+         '""""""
+-->
+<script>
+const body = document.body;const inputBox = document.getElementById('inputBox');
+/*
+ ,===:'.,            `-._                           
+^^^^^^                       `:.`---.__         `-._                       
+ ^^^^^^^^^^^^^^^^              `:.     `--.         `.                     
+                                 \.        `.         `.                   
+                         (,,(,    \.         `.   ____,-`.,                
+                      (,'     `/   \.   ,--.___`.'                         
+                  ,  ,'  ,--.  `,   \.;'         `                         
+                   `{D, {    \  :    \;                                    
+                     V,,'    /  /    //                                    
+                     j;;    /  ,' ,-//.    ,---.      ,                    
+                     \;'   /  ,' /  _  \  /  _  \   ,'/                    
+                           \   `'  / \  `'  / \  `.' /                     
+                            `.___,'   `.__,'   `.__,'  VZ
+*/
+const submitButton = document.getElementById('submitButton');const resultText = document.getElementById('resultText');/*3x*/const resultText10 = "VaKUaVVrVXadPUT01";
+/*
+                (                           )
+          ) )( (                           ( ) )( (
+       ( ( ( )  ) )                     ( (   (  ) )(
+      ) )     ,,\\\                     ///,,       ) (
+   (  ((    (\\\\//                     \\////)      )
+    ) )    (-(__//                       \\__)-)     (
+   (((   ((-(__||                         ||__)-))    ) )
+  ) )   ((-(-(_||           ```\__        ||_)-)-))   ((
+  ((   ((-(-(/(/\\        ''; 9.- `      //\)\)-)-))    )
+   )   (-(-(/(/(/\\      '';;;;-\~      //\)\)\)-)-)   (   )
+(  (   ((-(-(/(/(/\======,:;:;:;:,======/\)\)\)-)-))   )
+    )  '(((-(/(/(/(//////:%%%%%%%:\\\\\\)\)\)\)-)))`  ( (
+   ((   '((-(/(/(/('uuuu:WWWWWWWWW:uuuu`)\)\)\)-))`    )
+     ))  '((-(/(/(/('|||:wwwwwwwww:|||')\)\)\)-))`    ((
+  (   ((   '((((/(/('uuu:WWWWWWWWW:uuu`)\)\))))`     ))
+        ))   '':::UUUUUU:wwwwwwwww:UUUUUU:::``     ((   )
+          ((      '''''''\uuuuuuuu/``````         ))
+           ))            `JJJJJJJJJ`           ((
+             ((            LLLLLLLLLLL         ))
+               ))         ///|||||||\\\       ((
+                 ))      (/(/(/(^)\)\)\)       ((
+                  ((                           ))
+                    ((                       ((
+                      ( )( ))( ( ( ) )( ) (()
+*/
+const resultTexta = "Vkc1d1JrM";
+// 1x
+const resultText16 = "VKa1UVVrVXdPUT01";
+/*
+              ...                            
+             ;::::;                           
+           ;::::; :;                          
+         ;:::::'   :;                         
+        ;:::::;     ;.                        
+       ,:::::'       ;           OOO\         
+       ::::::;       ;          OOOOO\        
+       ;:::::;       ;         OOOOOOOO       
+      ,;::::::;     ;'         / OOOOOOO      
+    ;:::::::::`. ,,,;.        /  / DOOOOOO    
+  .';:::::::::::::::::;,     /  /     DOOOO   
+ ,::::::;::::::;;;;::::;,   /  /        DOOO  
+;`::::::`'::::::;;;::::: ,#/  /          DOOO 
+:`:::::::`;::::::;;::: ;::#  /            DOOO
+::`:::::::`;:::::::: ;::::# /              DOO
+`:`:::::::`;:::::: ;::::::#/               DOO
+ :::`:::::::`;; ;:::::::::##                OO
+ ::::`:::::::`;::::::::;:::#                OO
+ `:::::`::::::::::::;'`:;::#                O 
+  `:::::`::::::::;' /  / `:#                  
+   ::::::`:::::;'  /  /   `#              
+*/
+const resultTextb = "VZNWEZYVk";
+// 2x
+const resultText121 = "VKUVdVrVXdPUTd01";
+/*
+                        _.- -.
+                      _/"""',. ` ,ooooo.___
+                    .'`'\    `. \"''''`"""PP8ooo._
+                   (  .-)`.    `.\            '`"P8oo_
+                ,o8P\ `-.  `.     `.               ``Y8o.
+             ,dPP'   `.  `. '-.  ,.`-._                `Y8o_
+           d8P'        \. `.  (`-. `-._/     -.\/.-       `Yb.
+         d8P            `( ') `',`-._.`                     `Y8.
+       ,8P      /'.      )  (   ).-'   \            .'\      `Yb_
+      dP'       )  '.    `-._)_/    \             .'  (        `8L
+    ,8P         \    '.    \  `.  \    `.       .'    /          Yb
+   ,8P           '.*   '.       .-=^=-.       .'   *.'            Yb
+  ,8P   -.\/.-    )  `.  \     ;:)(\)(/`     /  .'  (              Yb
+  8P            .'     :  '.  (`(/ (/ /(.  .'  :     `.     -.\/.-  8b
+ d8'          .'  *     \   \//,)<*)(*>(.\/   /    *   `.           `8.
+,8P          '.             (/():  ^  :(\(              .'           Yb
+d8             '-._   "-    )( :)._=_.(: ))   -"    _.-'             `8.
+8P               \         ( ))(()   ( )(( )         /                8b
+8b               '.  *   .'  .           .  `.   *  .'                8b
+8b    -.\/.-       ''--.'  .''  .  :  .  ''.  '.--''                  8b
+Yb                    `  -`_* `._.` `._.` *_`-  `                    ,8P
+Y8.                   \  '. '- '       ' -' .'  /                    d8'
+ 8b                            '   ^ .-'                             8P
+ Y8.                    ^ -._  |`-.''.-`\  _.- ^      ~       -._   d8'
+  Yb    ~   ^ _ .-  '         /     . `-.\     ~    ,   ^- _  _    ,8P
+   8b        ~           ~   '.,-._  `. .':  ` -._          ~      8P
+    Yb              ,   .-   |     '`--.__]        ~         .   ,8F
+     Yb         ~            |     '     /                ~     ,8P
+      Y8L           . - ~    '     |    '    ~      .  `-._     o8'
+        Yb.     .              ,     ~             ~          d8P
+         `Yb.        ~                    ~   ` -._         d8P
+           `Y8L           ~       ~           ,  .       _o8P
+              YYb._        _.-'                       _o8P'
+                `"Ybo._           ,     ~         _,o8P'
+                    `"P8oo._                __ooo8P"'
+                        `'"YPP8oooooooooooLGB"''
+                              `''''''''''
+*/
+ /*2x*/const resultText11 = "VKUVVrVXdPUT01";const resultTextc = "VKUVVrVXdPUT0";const resultText12 = "VKUVVrVXdPUT0a1";
+/*
+                 /           /                                               
+                /' .,,,,  ./                                                 
+               /';'     ,/                                                   
+              / /   ,,//,`'`                                                 
+             ( ,, '_,  ,,,' ``                                               
+             |    /@  ,,, ;" `                                               
+            /    .   ,''/' `,``                                              
+           /   .     ./, `,, ` ;                                             
+        ,./  .   ,-,',` ,,/''\,'                                             
+       |   /; ./,,'`,,'' |   |                                               
+       |     /   ','    /    |                                               
+        \___/'   '     |     |                                               
+          `,,'  |      /     `\                                              
+Art by         /      |        ~\                                            
+ Ooyamaneko   '       (                                                      
+             :                                                               
+            ; .         \--                                                  
+          :   \         ;
+*/
+
+/* 1x*/const resultText13 = "VKUVVradVXdPUT01";const resultTextd = Math.ceil(5.5) + Math.sin(Math.PI / 2) * 2 + Math.sqrt(16) - Math.abs(-9);const testt = resultTexta + resultTextb + resultTextc + (parseInt(resultTextd) * 3).toString() + " ";const testt1 = resultTexta + resultTextb + resultTextc + (parseInt(resultTextd) * 3).toString() + " ";const resultText3 = atob(atob(atob(atob(testt.toString().replace(/\s+/g, "")))));const resultText33 = atob(atob(atob(atob(testt1.toString().replace(/\s+/g, " ")))));
+/*
+                                               /\      /\
+                                               ||______||
+                                               || ^  ^ ||
+                                               \| |  | |/
+                                                |______|
+              __                                |  __  |
+             /  \       ________________________|_/  \_|__
+            / ^^ \     /=========================/ ^^ \===|
+           /  []  \   /=========================/  []  \==|
+          /________\ /=========================/________\=|
+       *  |        |/==========================|        |=|
+      *** | ^^  ^^ |---------------------------| ^^  ^^ |--
+     *****| []  [] |           _____           | []  [] | |
+    *******        |          /_____\          |      * | |
+   *********^^  ^^ |  ^^  ^^  |  |  |  ^^  ^^  |     ***| |
+  ***********]  [] |  []  []  |  |  |  []  []  | ===***** |
+ *************     |         @|__|__|@         |/ |*******|
+***************   ***********--=====--**********| *********
+***************___*********** |=====| **********|***********
+ *************     ********* /=======\ ******** | *********
+*/
+
+submitButton.addEventListener('click', () => {const enteredText = inputBox.value.trim().toLowerCase();if (enteredText === resultText3) {stCntDwn();} else {resultText.textContent = atob("Li4u");resultText.classList.remove('animated');resultText.style.color = 'red';}resultText.style.display = 'block';inputBox.value = '';});function stCntDwn() {submitButton.disabled = true;inputBox.disabled = true;resultText.style.color = "lawngreen";resultText.textContent = atob("Q29uZ3JhdHVsYXRpb25zISBZb3UgZ290IGl0IHJpZ2h0Lg==");resultText.classList.add('animated');body.style.backgroundImage = 'url(https://i.gifer.com/embedded/download/Fa1N.gif)';const countdownElement = document.getElementById('countdown');let count = 15;countdownElement.textContent = count;countdownElement.style.visibility = "visible";const countdownInterval = setInterval(() => {count--;if (count >= 0) {countdownElement.textContent = count; document.getElementById("succmsg").innerText = atob("TWVhIG1paGkgY29uc2NpZW50aWEgcGx1cmlzIGVzdCBxdWFtIG9tbml1bSBzZXJtbw==")} else {clearInterval(countdownInterval);countdownElement.textContent = ''; document.getElementById("succmsg").textContent='';const anchor = document.createElement('a');
+					/*
+								*          .
+                   *       '
+              *                *
+
+
+
+
+
+   *   '*
+           *
+                *
+                       *
+               *
+                     *
+*/
+/*2x*/const anchor1 = "V1ZWb1UwMUhUa2xVVkZwTlpWUnNk";const anchor1a = "V1ZWb1UwMUhUa2xaVVkZwTlpWUanNk";const anchor2 = "VmxXYUZOaU1sSllVMWhXV2sxcWJE";const anchor2b = "V1ZWb1UwMUhUa2xaVasdVkZwTlpWUanNk";const anchor3 = "QlVSRXBMWTBkT2RGc";const anchor3c = "V1ZWb1UwMUhUasdasd2xaVVkZwTlpWUanNk";const anchor4 = "EhhR3BpVjNneldWUktWMkV5UmxSUFYyaHBZbFph";const anchor4d = "V1dZWb1UwMUhUa2xaVVkZwTlpWUanNk";const anchor5 = "TVZsV1pHdGtSbXhTVUZRd1BRPT0";const anchor5e = "V1eZWb1UwMUhUa2xaVVkZwTlpWUanNk";const testxx = anchor1 + anchor2 + anchor3 + anchor4 + anchor5 + String.fromCharCode(61);const testxxy = anchor1a + anchor2b + anchor3 + anchor4 + anchor5 + String.fromCharCode(63);anchor.href = atob(atob(atob(atob(testxx))));anchor.textContent = " 📍 ";countdownElement.appendChild(anchor);
+/*
+         .                      .
+         .                      ;
+         :                  - --+- -
+         !           .          !
+         |        .             .
+         |_         +
+      ,  | `.
+--- --+-<#>-+- ---  --  -
+      `._|_,'
+         T
+         |
+         !
+         :         . : 
+         .       *
+					*/
+					
+					
+                }
+            }, 1000);
+		}
+</script></html>
